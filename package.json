@@ -8,7 +8,9 @@
     "test:watch": "nodemon --exec spec/support/reporter.js",
     "test:coverage": "nyc jasmine",
     "lint": "eslint spec",
-    "ci": "npm run lint && npm run test:coverage && npm audit"
+    "ci": "npm run lint && npm run test:coverage && npm audit",
+    "karma": "karma start karma.conf.js"
+
   },
   "keywords": [],
   "author": "",
