@@ -47,7 +47,7 @@ module.exports = function (config) {
 
       },
     },
-    browsers: ['LT_Chrome_Test', "LT_Safari_Test"], // Use the LambdaTest custom launcher
+    browsers: ['LT_Chrome_Test', "LT_Explorer_Test"], // Use the LambdaTest custom launcher
     singleRun: true, // Exit after running tests
     autoWatch: false, // Disable auto-watch for continuous testing
     concurrency: 1, // Run one test at a time
