@@ -10,7 +10,7 @@ module.exports = function (config) {
     basePath: '',
     frameworks: ['jasmine'], // Use Jasmine as the testing framework
     files: [
-      'test/*.js', // Include all test files
+      'spec/**/*.js', // Include all test files
       'src/*.js', // Include source files
     ],
     preprocessors: {}, // Add preprocessors if needed
@@ -52,7 +52,7 @@ module.exports = function (config) {
     autoWatch: false, // Disable auto-watch for continuous testing
     concurrency: 1, // Run one test at a time
     logLevel: config.LOG_DEBUG, // Enable detailed logging for debugging
-    browserNoActivityTimeout: 300000, // Increase timeout for LambdaTest
+    browserNoActivityTimeout: 600000, // Increase timeout for LambdaTest
     browserDisconnectTimeout: 300000,
     browserDisconnectTolerance: 1,
   });
