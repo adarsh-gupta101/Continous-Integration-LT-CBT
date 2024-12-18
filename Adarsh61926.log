@@ -1,0 +1,32 @@
+{"level":"info","time":"2024-12-18T23:13:29.576+0530","caller":"cmd/lt.go:207","msg":"LambdaTest Tunnel version: 3.2.9"}
+{"level":"info","time":"2024-12-18T23:13:30.445+0530","caller":"custom/setup.go:861","msg":"Tunnel binary started on port :61927"}
+{"level":"info","time":"2024-12-18T23:13:32.159+0530","caller":"core/lifecycle.go:282","msg":"Launching tunnel"}
+{"level":"info","time":"2024-12-18T23:13:36.822+0530","caller":"core/lifecycle.go:404","msg":"You can start testing now"}
+{"level":"info","time":"2024-12-18T23:13:36.825+0530","caller":"core/lifecycle.go:405","msg":"Tunnel ID: 3503939"}
+{"level":"error","time":"2024-12-18T23:25:07.330+0530","caller":"ws/control.go:79","msg":"Control connection break error"}
+{"level":"warn","time":"2024-12-18T23:25:07.331+0530","caller":"ws/control.go:80","msg":"Retrying"}
+{"level":"error","time":"2024-12-18T23:25:07.331+0530","caller":"ws/control.go:81","msg":"ERR::WS::CTRL::CONN::DWN : Control websocket connection closed read tcp 192.168.0.10:61940->23.106.54.77:443: wsarecv: A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond. "}
+{"level":"error","time":"2024-12-18T23:25:08.573+0530","caller":"ws/control.go:79","msg":"Control connection break error"}
+{"level":"warn","time":"2024-12-18T23:25:08.573+0530","caller":"ws/control.go:80","msg":"Retrying"}
+{"level":"error","time":"2024-12-18T23:25:08.573+0530","caller":"ws/control.go:81","msg":"ERR::WS::CTRL::CONN::DWN : Control websocket connection closed websocket: close 1006 (abnormal closure): unexpected EOF "}
+{"level":"error","time":"2024-12-18T23:25:09.569+0530","caller":"ws/control.go:79","msg":"Control connection break error"}
+{"level":"warn","time":"2024-12-18T23:25:09.569+0530","caller":"ws/control.go:80","msg":"Retrying"}
+{"level":"error","time":"2024-12-18T23:25:09.569+0530","caller":"ws/control.go:81","msg":"ERR::WS::CTRL::CONN::DWN : Control websocket connection closed websocket: close 1006 (abnormal closure): unexpected EOF "}
+{"level":"error","time":"2024-12-18T23:25:11.220+0530","caller":"ws/control.go:79","msg":"Control connection break error"}
+{"level":"warn","time":"2024-12-18T23:25:11.220+0530","caller":"ws/control.go:80","msg":"Retrying"}
+{"level":"error","time":"2024-12-18T23:25:11.220+0530","caller":"ws/control.go:81","msg":"ERR::WS::CTRL::CONN::DWN : Control websocket connection closed websocket: close 1006 (abnormal closure): unexpected EOF "}
+{"level":"error","time":"2024-12-18T23:25:16.028+0530","caller":"ws/control.go:79","msg":"Control connection break error"}
+{"level":"warn","time":"2024-12-18T23:25:16.029+0530","caller":"ws/control.go:80","msg":"Retrying"}
+{"level":"error","time":"2024-12-18T23:25:16.029+0530","caller":"ws/control.go:81","msg":"ERR::WS::CTRL::CONN::DWN : Control websocket connection closed websocket: close 1006 (abnormal closure): unexpected EOF "}
+{"level":"error","time":"2024-12-18T23:25:24.854+0530","caller":"ws/control.go:79","msg":"Control connection break error"}
+{"level":"warn","time":"2024-12-18T23:25:24.854+0530","caller":"ws/control.go:80","msg":"Retrying"}
+{"level":"error","time":"2024-12-18T23:25:24.854+0530","caller":"ws/control.go:81","msg":"ERR::WS::CTRL::CONN::DWN : Control websocket connection closed websocket: close 1006 (abnormal closure): unexpected EOF "}
+{"level":"error","time":"2024-12-18T23:25:24.854+0530","caller":"core/lifecycle.go:413","msg":"Err occurred: ERR::CTRL::CONN::MAX::ATTEMPT : Control websocket reconnection max attempt reached "}
+{"level":"error","time":"2024-12-18T23:25:24.854+0530","caller":"core/lifecycle.go:414","msg":"Aborting"}
+{"level":"info","time":"2024-12-18T23:25:27.178+0530","caller":"core/lifecycle.go:435","msg":"Tunnel stopped successfully"}
+{"level":"info","time":"2024-12-18T23:25:27.179+0530","caller":"cmd/lt.go:238","msg":"Tunnel aborted, starting new tunnel."}
+{"level":"info","time":"2024-12-18T23:25:38.494+0530","caller":"core/lifecycle.go:282","msg":"Launching tunnel"}
+{"level":"info","time":"2024-12-18T23:25:38.495+0530","caller":"custom/setup.go:861","msg":"Tunnel binary started on port :61927","tunnelID":"3503939"}
+{"level":"info","time":"2024-12-18T23:25:42.326+0530","caller":"core/lifecycle.go:404","msg":"You can start testing now"}
+{"level":"info","time":"2024-12-18T23:25:42.326+0530","caller":"core/lifecycle.go:405","msg":"Tunnel ID: 3504042"}
+{"level":"info","time":"2024-12-18T23:29:40.391+0530","caller":"core/lifecycle.go:450","msg":"Stopping tunnel"}

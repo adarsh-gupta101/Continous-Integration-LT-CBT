@@ -69,14 +69,13 @@ jobs:
     - name: Run linting
       run: npm run lint
       
-    - name: Set up LambdaTest Tunnel
+    - name: Start LambdaTest Tunnel
+      run: |
+        npm install @lambdatest/node-tunnel
+        node start-tunnel.js &
       env:
         LT_USERNAME: ${{ secrets.LT_USERNAME }}
         LT_ACCESS_KEY: ${{ secrets.LT_ACCESS_KEY }}
-      run: |
-        npm install -g @lambdatest/lambda-tunnel
-        lambda-tunnel --user $LT_USERNAME --key $LT_ACCESS_KEY &
-        sleep 30 # Allow tunnel to establish
 
     - name: Run Karma Tests on LambdaTest
       env:
