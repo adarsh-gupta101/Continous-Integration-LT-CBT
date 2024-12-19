@@ -16,6 +16,6 @@ const tunnelArguments = {
       // Run your tests here
     }
   } catch (error) {
-    console.error("Error starting the tunnel:", error);
+    console.error("------------------->Error starting the tunnel:", error);
   }
 })();
