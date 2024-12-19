@@ -23,10 +23,10 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node-version }}
-          
+
       - name: Verify LambdaTest Credentials
         run: |
-          echo  ${{LT_USERNAME}}
+          echo  ${{secrets.LT_USERNAME}}
           echo "Access Key Length: ${#LT_ACCESS_KEY}"
 
 
