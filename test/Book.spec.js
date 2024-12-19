@@ -1,5 +1,32 @@
-const Book = require('../../models/Book');
-const Review = require('../../models/Review');
+// // book.spec.js (no import/export)
+// describe('Book', () => {
+//   let book;
+
+//   beforeEach(() => {
+//     book = new Book('123', 'The Test Book', 'Test Author', '1234567890123', '2024-01-01');
+//   });
+
+//   describe('addReview', () => {
+//     it('should add a review and update rating', () => {
+//       const review = new Review('user1', book.id, 4, 'Great book!');
+//       book.addReview(review);
+
+//       expect(book.reviews.length).toBe(1);
+//       expect(book.rating).toBe(4);
+//     });
+
+//     it('should calculate average rating correctly', () => {
+//       book.addReview(new Review('user1', book.id, 5, 'Excellent!'));
+//       book.addReview(new Review('user2', book.id, 3, 'Good'));
+
+//       expect(book.rating).toBe(4);
+//     });
+//   });
+// });
+
+
+// import Book from '../src/Book';
+// import Review from '../src/Review';
 // import Book from '../../models/Book.js';
 // import Review from '../../models/Review.js';
 

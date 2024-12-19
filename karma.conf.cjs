@@ -1,5 +1,3 @@
-
-
 module.exports = function (config) {
   const webdriverConfig = {
     hostname: 'hub.lambdatest.com',
@@ -10,14 +8,21 @@ module.exports = function (config) {
     basePath: '',
     frameworks: ['jasmine'], // Use Jasmine as the testing framework
     files: [
-      'spec/**/*.js', // Include all test files
-      'src/*.js', // Include source files
+      // 'models/Book.js',  // Ensure this is an ES module, use .mjs or proper module setup
+      // 'models/Review.js', // Ensure all your models are ES modules
+      // 'services/BookService.js', // Similarly for other JS files
+      // 'spec/support/Book.spec.js',  // Ensure your test files are also using ES module syntax
+      // 'spec/support/BookService.spec.js',
+       'test/*.js', // Include all test files
+        'src/*.js'
     ],
+    
     preprocessors: {}, // Add preprocessors if needed
     reporters: ['mocha'], // Use Mocha-style reporting
     mochaReporter: {
       output: 'full', // Display full results in the terminal
     },
+    
     customLaunchers: {
       LT_Chrome_Test: {
         base: 'WebDriver',
@@ -31,23 +36,9 @@ module.exports = function (config) {
         user: process.env.LT_USERNAME,
         accessKey: process.env.LT_ACCESS_KEY,
       },
-      //safari
-      LT_Explorer_Test: {
-        base: 'WebDriver',
-        config: webdriverConfig,
-        browserName: 'Internet Explorer',
-        browserVersion: '10',
-        platformName: "Windows 7",
-        name: 'Jasmine-Karma-CI-Test',
-        build: 'Jasmine-Karma-CI-Test',
-        tunnel: true,
-        user: process.env.LT_USERNAME,
-        accessKey: process.env.LT_ACCESS_KEY,
-        plugin: "node_js-jasmine"
-
-      },
+      // Add Safari or other browser launchers if needed
     },
-    browsers: ['LT_Chrome_Test', "LT_Explorer_Test"], // Use the LambdaTest custom launcher
+    browsers: ['LT_Chrome_Test'], // Use the LambdaTest custom launcher
     singleRun: true, // Exit after running tests
     autoWatch: false, // Disable auto-watch for continuous testing
     concurrency: 1, // Run one test at a time

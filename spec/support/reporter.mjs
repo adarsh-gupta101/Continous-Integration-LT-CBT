@@ -1,10 +1,15 @@
 /* global window */
 
 // spec/support/reporter.js
-const JasmineConsoleReporter = require('jasmine-console-reporter');
-const jsdom = require('jsdom');
+// const JasmineConsoleReporter = require('jasmine-console-reporter');
+// const jsdom = require('jsdom');
+// const Jasmine = require('jasmine');
+// conver to import statments
+import JasmineConsoleReporter from 'jasmine-console-reporter';
+import jsdom from 'jsdom';
+import Jasmine from 'jasmine';
 const { JSDOM } = jsdom; 
-const Jasmine = require('jasmine');
+
 
 const jasmine = new Jasmine();
 

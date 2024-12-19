@@ -4,13 +4,12 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "node spec/support/reporter.js",
-    "test:watch": "nodemon --exec spec/support/reporter.js",
+    "test": "node spec/support/reporter.mjs",
+    "test:watch": "nodemon --exec spec/support/reporter.mjs",
     "test:coverage": "nyc jasmine",
     "lint": "eslint spec",
     "ci": "npm run lint && npm run test:coverage && npm audit",
-    "karma": "karma start karma.conf.js"
-
+    "karma": "karma start karma.conf.cjs"
   },
   "keywords": [],
   "author": "",
@@ -20,14 +19,9 @@
     "jasmine": "^5.4.0",
     "jasmine-console-reporter": "^3.1.0",
     "jsdom": "^25.0.1"
-
-
   },
   "devDependencies": {
     "eslint": "8.56.0",
-    "nodemon": "^2.0.15",
-    "nyc": "^15.1.0",
-
     "globals": "^15.12.0",
     "jasmine": "^5.5.0",
     "karma": "^4.4.1",
@@ -36,7 +30,11 @@
     "karma-jasmine": "^0.2.3",
     "karma-mocha-reporter": "^0.3.2",
     "karma-safari-launcher": "^0.1.1",
-    "karma-webdriver-launcher": "^1.0.8"
-    
+    "karma-webdriver-launcher": "^1.0.8",
+    "karma-webpack": "^5.0.1",
+    "nodemon": "^2.0.15",
+    "nyc": "^15.1.0",
+    "webpack": "^5.97.1",
+    "webpack-cli": "^5.1.4"
   }
 }
