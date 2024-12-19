@@ -25,8 +25,11 @@ jobs:
           node-version: ${{ matrix.node-version }}
 
       - name: Verify LambdaTest Credentials
+        env:
+          LT_USERNAME: ${{ secrets.LT_USERNAME }}
+          LT_ACCESS_KEY: ${{ secrets.LT_ACCESS_KEY }}
         run: |
-          echo  ${{secrets.LT_USERNAME}}
+          echo "Username: $LT_USERNAME"
           echo "Access Key Length: ${#LT_ACCESS_KEY}"
 
 
