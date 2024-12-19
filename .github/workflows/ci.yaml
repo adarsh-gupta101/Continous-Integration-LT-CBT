@@ -23,6 +23,11 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node-version }}
+      - name: Verify LambdaTest Credentials
+        run: |
+          echo "Username: $LT_USERNAME"
+          echo "Access Key Length: ${#LT_ACCESS_KEY}"
+
 
       - name: Install dependencies
         run: npm ci
@@ -40,7 +45,7 @@ jobs:
         run: |
           npm install @lambdatest/node-tunnel
           node start-tunnel.js
-          
+
       - name: Wait for LambdaTest Tunnel
         run: sleep 5
 
