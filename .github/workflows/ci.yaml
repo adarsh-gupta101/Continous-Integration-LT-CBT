@@ -1,51 +1,10 @@
-# name: CI
-
-# on:
-#   push:
-#     branches: [ main ]
-#   pull_request:
-#     branches: [ main ]
-
-# jobs:
-#   test:
-#     runs-on: ubuntu-latest
-
-#     strategy:
-#       matrix:
-#         node-version: [16.x, 18.x, 20.x]
-
-#     steps:
-#     - uses: actions/checkout@v3
-    
-#     - name: Use Node.js ${{ matrix.node-version }}
-#       uses: actions/setup-node@v3
-#       with:
-#         node-version: ${{ matrix.node-version }}
-        
-#     - name: Install dependencies
-#       run: npm ci
-      
-#     - name: Run linting
-#       run: npm run lint
-      
-#     - name: Run tests with coverage
-#       run: npm run test:coverage
-      
-#     - name: Upload coverage reports
-#       uses: codecov/codecov-action@v3
-      
-#     - name: Run security audit
-#       run: npm audit
-
-
-
 name: CI
 
 on:
   push:
-    branches: [ main ]
+    branches: [main]
   pull_request:
-    branches: [ main ]
+    branches: [main]
 
 jobs:
   test:
@@ -53,11 +12,12 @@ jobs:
 
     strategy:
       matrix:
-        # node-version: [16.x, 18.x, 20.x]
+        # You can add more Node.js versions here if needed.
         node-version: [20.x]
 
     steps:
-    - uses: actions/checkout@v3
+    - name: Checkout repository
+      uses: actions/checkout@v3
 
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v3
@@ -66,17 +26,37 @@ jobs:
         
     - name: Install dependencies
       run: npm ci
-      
+
     - name: Run linting
       run: npm run lint
-      
+
+    - name: Install LambdaTest Tunnel
+      run: npm install @lambdatest/node-tunnel
+
     - name: Start LambdaTest Tunnel
       env:
-        LT_USERNAME: ${{ secrets.LT_USERNAME }} 
+        LT_USERNAME: ${{ secrets.LT_USERNAME }}
         LT_ACCESS_KEY: ${{ secrets.LT_ACCESS_KEY }}
       run: |
-        npm install @lambdatest/node-tunnel
-        node start-tunnel.js 
+        node -e "
+        const lambdaTunnel = require('@lambdatest/node-tunnel');
+        const tunnelArguments = {
+          user: process.env.LT_USERNAME,
+          key: process.env.LT_ACCESS_KEY,
+        };
+        (async function () {
+          try {
+            const tunnel = new lambdaTunnel();
+            const isTunnelStarted = await tunnel.start(tunnelArguments);
+            if (isTunnelStarted) {
+              console.log('LambdaTest Tunnel started successfully.');
+            }
+          } catch (err) {
+            console.error('Error starting LambdaTest Tunnel:', err);
+            process.exit(1);
+          }
+        })();
+        "
 
     - name: Wait for LambdaTest Tunnel
       run: sleep 5
@@ -86,10 +66,9 @@ jobs:
         LT_USERNAME: ${{ secrets.LT_USERNAME }}
         LT_ACCESS_KEY: ${{ secrets.LT_ACCESS_KEY }}
       run: npm run karma
-      
 
     - name: Upload coverage reports
       uses: codecov/codecov-action@v3
-      
+
     - name: Run security audit
       run: npm audit
