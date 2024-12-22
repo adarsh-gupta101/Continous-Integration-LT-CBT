@@ -23,6 +23,13 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node-version }}
+      - name: Set up environment variables
+        env:
+          API_KEY: ${{ secrets.API_KEY }}
+          NODE_ENV: production # You can also define non-sensitive variables here
+        run: |
+          echo "API_KEY=$API_KEY"
+          echo "NODE_ENV=$NODE_ENV"
 
       - name: Verify LambdaTest Credentials
         env:
