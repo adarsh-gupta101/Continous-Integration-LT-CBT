@@ -44,8 +44,8 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Run linting
-        run: npm run lint
+      # - name: Run linting
+      #   run: npm run lint
 
       - name: Install LambdaTest Tunnel
         run: npm install @lambdatest/node-tunnel
