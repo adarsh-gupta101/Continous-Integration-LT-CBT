@@ -49,17 +49,27 @@ jobs:
 
       - name: Install LambdaTest Tunnel
         run: npm install @lambdatest/node-tunnel
-
-      - name: Start LambdaTest Tunnel
+      
+      - name: Start LambdaTest Tunnel in the Background
         env:
           LT_USERNAME: ${{ secrets.LT_USERNAME }}
           LT_ACCESS_KEY: ${{ secrets.LT_ACCESS_KEY }}
         run: |
-          npm install @lambdatest/node-tunnel
-          node start-tunnel.js
+          node start-tunnel.js & echo $! > tunnel_pid.txt
+          echo "LambdaTest Tunnel started. PID saved to tunnel_pid.txt."
 
-      - name: Wait for LambdaTest Tunnel
-        run: sleep 5
+      # - name: Start LambdaTest Tunnel
+      #   env:
+      #     LT_USERNAME: ${{ secrets.LT_USERNAME }}
+      #     LT_ACCESS_KEY: ${{ secrets.LT_ACCESS_KEY }}
+      #   run: |
+      #     npm install @lambdatest/node-tunnel
+      #     node start-tunnel.js
+
+      # - name: Wait for LambdaTest Tunnel
+      #   run: sleep 5
+
+      
 
       - name: Run Karma Tests on LambdaTest
         env:
