@@ -1,4 +1,5 @@
-const lambdaTunnel = require("@lambdatest/node-tunnel");
+// const lambdaTunnel = require("@lambdatest/node-tunnel");
+import lambdaTunnel from "@lambdatest/node-tunnel";
 
 // Replace these with your LambdaTest credentials
 const tunnelArguments = {
