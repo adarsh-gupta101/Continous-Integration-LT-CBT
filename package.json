@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "test": "node spec/support/reporter.mjs",
     "test:watch": "nodemon --exec spec/support/reporter.mjs",
