@@ -39,7 +39,7 @@ jobs:
         run: |
           echo "Username: $LT_USERNAME"
           echo "Access Key Length: ${#LT_ACCESS_KEY}"
-          echo "Access key:: $LAMBDATEST_TEST_STRING"
+          echo "Access key:: $LAMBDATEST_TEST_STRING" printing...
 
       # - name: Install dependencies
       #   run: npm ci
