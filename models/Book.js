@@ -1,5 +1,5 @@
 // models/Book.js
- class Book {
+class Book {
   constructor(id, title, author, isbn, publishDate) {
     this.id = id;
     this.title = title;
@@ -31,4 +31,4 @@
   }
 }
 
-module.exports = Book;
+// module.exports = Book;

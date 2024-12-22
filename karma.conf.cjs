@@ -1,37 +1,45 @@
 module.exports = function (config) {
   const webdriverConfig = {
-    hostname: 'hub.lambdatest.com',
+    hostname: "hub.lambdatest.com",
     port: 80,
   };
 
   config.set({
-    basePath: '',
-    frameworks: ['jasmine'], // Use Jasmine as the testing framework
+    basePath: "",
+    frameworks: ["jasmine"], // Use Jasmine as the testing framework
     files: [
       // 'models/Book.js',  // Ensure this is an ES module, use .mjs or proper module setup
       // 'models/Review.js', // Ensure all your models are ES modules
       // 'services/BookService.js', // Similarly for other JS files
       // 'spec/support/Book.spec.js',  // Ensure your test files are also using ES module syntax
       // 'spec/support/BookService.spec.js',
-       'test/*.js', // Include all test files
-        'src/*.js'
+      // "test/*.js", // Include all test files
+
+      "spec/support/Book.spec.js",
+      "spec/support/BookService.spec.js",
+
+      // "src/*.js",
+      "models/Book.js",
+      "models/Review.js",
+      "services/BookService.js",
+
     ],
-    
+
     preprocessors: {}, // Add preprocessors if needed
-    reporters: ['mocha'], // Use Mocha-style reporting
+    reporters: ["mocha"], // Use Mocha-style reporting
     mochaReporter: {
-      output: 'full', // Display full results in the terminal
+      output: "full", // Display full results in the terminal
     },
-    
+
     customLaunchers: {
       LT_Chrome_Test: {
-        base: 'WebDriver',
+        base: "WebDriver",
         config: webdriverConfig,
-        browserName: 'chrome',
-        browserVersion: 'latest',
-        platform: 'Windows 11',
-        name: 'Jasmine-Karma-CI-Test',
-        build: 'Jasmine-Karma-CI-Test',
+        browserName: "chrome",
+        browserVersion: "latest",
+        platform: "Windows 11",
+        name: "Jasmine-Karma-CI-Test",
+        build: "Jasmine-Karma-Continous-Integration",
         tunnel: true,
         user: process.env.LT_USERNAME,
         accessKey: process.env.LT_ACCESS_KEY,
