@@ -1,172 +1,3 @@
-# name: CI
-
-# on:
-#   push:
-#     branches: [main]
-#   pull_request:
-#     branches: [main]
-
-# jobs:
-#   test:
-#     runs-on: ubuntu-latest
-
-#     strategy:
-#       matrix:
-#         # You can add more Node.js versions here if needed.
-#         node-version: [20.x]
-
-#     steps:
-#       - name: Checkout repository
-#         uses: actions/checkout@v3
-
-#       - name: Use Node.js ${{ matrix.node-version }}
-#         uses: actions/setup-node@v3
-#         with:
-#           node-version: ${{ matrix.node-version }}
-#       - name: Set up environment variables
-#         env:
-#           API_KEY: ${{ secrets.API_KEY }}
-#           NODE_ENV: production # You can also define non-sensitive variables here
-#         run: |
-#           echo "API_KEY=$API_KEY"
-#           echo "NODE_ENV=$NODE_ENV"
-
-#       - name: Verify LambdaTest Credentials
-#         env:
-#           LAMBDATEST_TEST_STRING: ${{secrets.LAMBDATEST_TEST_STRING}}
-#           LT_USERNAME: ${{ secrets.LT_USERNAME }}
-#           LT_ACCESS_KEY: ${{ secrets.LT_ACCESS_KEY }}
-#         run: |
-#           echo "Username: $LT_USERNAME"
-#           echo "Access Key Length: ${#LT_ACCESS_KEY}"
-#           echo "Access key:: $LAMBDATEST_TEST_STRING" printing...
-
-#       - name: Install dependencies
-#         run: npm ci
-
-#       # - name: Run linting
-#       #   run: npm run lint
-
-#       - name: Install LambdaTest Tunnel
-#         run: npm install @lambdatest/node-tunnel
-      
-#       - name: Start LambdaTest Tunnel in the Background
-#         env:
-#           LT_USERNAME: ${{ secrets.LT_USERNAME }}
-#           LT_ACCESS_KEY: ${{ secrets.LT_ACCESS_KEY }}
-#         run: |
-#           node start-tunnel.js & echo $! > tunnel_pid.txt
-#           echo "LambdaTest Tunnel started. PID saved to tunnel_pid.txt."
-
-#       # - name: Start LambdaTest Tunnel
-#       #   env:
-#       #     LT_USERNAME: ${{ secrets.LT_USERNAME }}
-#       #     LT_ACCESS_KEY: ${{ secrets.LT_ACCESS_KEY }}
-#       #   run: |
-#       #     npm install @lambdatest/node-tunnel
-#       #     node start-tunnel.js
-
-#       # - name: Wait for LambdaTest Tunnel
-#       #   run: sleep 5
-
-      
-
-#       - name: Run Karma Tests on LambdaTest
-#         env:
-#           LT_USERNAME: ${{ secrets.LT_USERNAME }}
-#           LT_ACCESS_KEY: ${{ secrets.LT_ACCESS_KEY }}
-#         run: npm run karma
-
-#       - name: Upload coverage reports
-#         uses: codecov/codecov-action@v3
-
-#       - name: Run security audit
-#         run: npm audit
-
-
-# name: CI
-
-# on:
-#   push:
-#     branches: [main]
-#   pull_request:
-#     branches: [main]
-
-# jobs:
-#   test:
-#     runs-on: ubuntu-latest
-
-#     strategy:
-#       matrix:
-#         node-version: [20.x]
-
-#     steps:
-#       - name: Checkout repository
-#         uses: actions/checkout@v3
-
-#       - name: Use Node.js ${{ matrix.node-version }}
-#         uses: actions/setup-node@v3
-#         with:
-#           node-version: ${{ matrix.node-version }}
-
-#       - name: Set up environment variables
-#         env:
-#           API_KEY: ${{ secrets.API_KEY }}
-#           NODE_ENV: production
-#         run: |
-#           echo "API_KEY set successfully"
-#           echo "NODE_ENV set to $NODE_ENV"
-
-#       - name: Verify LambdaTest Credentials
-#         env:
-#           LT_USERNAME: ${{ secrets.LT_USERNAME }}
-#           LT_ACCESS_KEY: ${{ secrets.LT_ACCESS_KEY }}
-#         run: |
-#           if [[ -z "$LT_USERNAME" || -z "$LT_ACCESS_KEY" ]]; then
-#             echo "Error: LambdaTest credentials are missing."
-#             exit 1
-#           fi
-
-#       - name: Install dependencies
-#         run: npm ci
-
-#       - name: Install LambdaTest Tunnel
-#         run: npm install @lambdatest/node-tunnel
-
-#       - name: Start LambdaTest Tunnel in the Background
-#         env:
-#           LT_USERNAME: ${{ secrets.LT_USERNAME }}
-#           LT_ACCESS_KEY: ${{ secrets.LT_ACCESS_KEY }}
-#         run: |
-#           node start-tunnel.js & echo $! > tunnel_pid.txt
-#           echo "LambdaTest Tunnel started. PID saved to tunnel_pid.txt."
-
-#       - name: Ensure Tunnel is Running
-#         run: |
-#           sleep 5
-#           if ! ps -p $(cat tunnel_pid.txt); then
-#             echo "Error: LambdaTest Tunnel is not running."
-#             exit 1
-#           fi
-
-#       - name: Run Karma Tests on LambdaTest
-#         env:
-#           LT_USERNAME: ${{ secrets.LT_USERNAME }}
-#           LT_ACCESS_KEY: ${{ secrets.LT_ACCESS_KEY }}
-#         run: |
-#           npm run karma || (echo "Karma tests failed!" && exit 1)
-
-#       - name: Stop LambdaTest Tunnel
-#         run: |
-#           if [[ -f tunnel_pid.txt ]]; then
-#             kill -9 $(cat tunnel_pid.txt) && echo "Tunnel process stopped."
-#           fi
-
-#       - name: Upload coverage reports
-#         uses: codecov/codecov-action@v3
-
-#       - name: Run security audit
-#         run: npm audit
 
 
 name: CI
@@ -196,16 +27,7 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
 
-      # Step 3: Set up environment variables
-      - name: Set up environment variables
-        env:
-          API_KEY: ${{ secrets.API_KEY }}
-          NODE_ENV: production
-        run: |
-          echo "API_KEY set successfully"
-          echo "NODE_ENV set to $NODE_ENV"
-
-      # Step 4: Verify LambdaTest credentials
+      # Step 3: Verify LambdaTest credentials
       - name: Verify LambdaTest Credentials
         env:
           LT_USERNAME: ${{ secrets.LT_USERNAME }}
@@ -216,11 +38,11 @@ jobs:
             exit 1
           fi
 
-      # Step 5: Install dependencies
+      # Step 4: Install dependencies
       - name: Install dependencies
         run: npm ci
 
-      # Step 6: Start the LambdaTest Tunnel using the GitHub Action
+      # Step 5: Start the LambdaTest Tunnel using the GitHub Action
       - name: Start LambdaTest Tunnel
         uses: LambdaTest/LambdaTest-tunnel-action@v2
         id: tunnel
@@ -229,13 +51,13 @@ jobs:
           accessKey: ${{ secrets.LT_ACCESS_KEY }}
           tunnelName: "CI_Tunnel" # Optional: Name the tunnel for better tracking
 
-      # Step 7: Run your Karma tests on LambdaTest
+      # Step 6: Run your Karma tests on LambdaTest
       - name: Run Karma Tests
         env:
           LT_USERNAME: ${{ secrets.LT_USERNAME }}
           LT_ACCESS_KEY: ${{ secrets.LT_ACCESS_KEY }}
         run: npm run karma
 
-      # Step 8: Upload coverage reports (optional)
+      # Step 7: Upload coverage reports (optional)
       - name: Upload coverage reports
         uses: codecov/codecov-action@v3

@@ -12,5 +12,6 @@ class Review {
   }
 
     // module.exports = Review;
+    export default Review;
 
     // module.exports= Review;

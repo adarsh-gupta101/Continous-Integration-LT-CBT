@@ -4,14 +4,23 @@
   "description": "",
   "main": "index.js",
   "type": "module",
+
+
   "scripts": {
     "test": "node spec/support/reporter.mjs",
     "test:watch": "nodemon --exec spec/support/reporter.mjs",
+  
+  
+
+
+
     "test:coverage": "nyc jasmine",
     "lint": "eslint spec",
     "ci": "npm run lint && npm run test:coverage && npm audit",
     "karma": "karma start karma.conf.cjs"
   },
+
+
   "keywords": [],
   "author": "",
   "license": "ISC",
@@ -39,3 +48,4 @@
     "webpack-cli": "^5.1.4"
   }
 }
+

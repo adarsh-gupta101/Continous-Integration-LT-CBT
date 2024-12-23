@@ -36,3 +36,4 @@ jasmine.env.addReporter(reporter);
 
 jasmine.loadConfigFile('spec/support/jasmine.json'); // Load your jasmine.json configuration file
 jasmine.execute();
+

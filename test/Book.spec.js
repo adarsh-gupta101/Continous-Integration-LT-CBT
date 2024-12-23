@@ -25,8 +25,8 @@
 // });
 
 
-// import Book from '../src/Book';
-// import Review from '../src/Review';
+import Book from '../src/Book.js';
+import Review from '../src/Review.js';
 // import Book from '../../models/Book.js';
 // import Review from '../../models/Review.js';
 
@@ -36,7 +36,7 @@ describe('Book', () => {
   beforeEach(() => {
     book = new Book(
       '123',
-      'The Test Book',
+      'The Test Book', 
       'Test Author',
       '1234567890123',
       '2024-01-01'
